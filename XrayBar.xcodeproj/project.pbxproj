@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		242709DA49B144E58723244C /* XrayProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D4354407938C7ACAFDD9A /* XrayProcessManager.swift */; };
+		43E86503D1912B44D68C21AE /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C88361534CDEB9CF0EB4224 /* Profile.swift */; };
+		4A8529EE8DEE136A8D615528 /* XrayBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904EADD7198FCFCE58FDA702 /* XrayBarApp.swift */; };
+		4F919DABFB56C2B52F9F034F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA3F188039091E5A0F6BB40 /* AppState.swift */; };
+		72F235716574D9AEDCD203DE /* XrayBarHelper in Resources */ = {isa = PBXBuildFile; fileRef = 357EDCD684BA1CDD0D9AC9BA /* XrayBarHelper */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		735330D48EB377532C09B8DB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05288CF6F7352901DFAE8F7 /* main.swift */; };
+		990B14FAFD51FEADC277A0EC /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FBC598DDCBBEEFA224E210 /* MenuBarView.swift */; };
+		D5078DF9328B7B8C5619C968 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A92F19E95509902A976744 /* ProfileManager.swift */; };
+		FBE27EDB0C6884243C100840 /* ProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3E8E414F799EC34C2562A6 /* ProxyManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D96C437E0B01DEDBCCB0C0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DD821AB6E67D084E095FC64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5955A88FC4CF5BE246A748FE;
+			remoteInfo = XrayBarHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00FBC598DDCBBEEFA224E210 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		0AA3F188039091E5A0F6BB40 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		0E3E8E414F799EC34C2562A6 /* ProxyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyManager.swift; sourceTree = "<group>"; };
+		357EDCD684BA1CDD0D9AC9BA /* XrayBarHelper */ = {isa = PBXFileReference; includeInIndex = 0; path = XrayBarHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C88361534CDEB9CF0EB4224 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		70E73890227839CA2AC64881 /* XrayBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XrayBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E7D4354407938C7ACAFDD9A /* XrayProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XrayProcessManager.swift; sourceTree = "<group>"; };
+		904EADD7198FCFCE58FDA702 /* XrayBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XrayBarApp.swift; sourceTree = "<group>"; };
+		A05288CF6F7352901DFAE8F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E3A92F19E95509902A976744 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3EA2A8FBE765168FAD0DD584 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0AA3F188039091E5A0F6BB40 /* AppState.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3F3D50431CD1BFD1E95C259F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E3A92F19E95509902A976744 /* ProfileManager.swift */,
+				0E3E8E414F799EC34C2562A6 /* ProxyManager.swift */,
+				8E7D4354407938C7ACAFDD9A /* XrayProcessManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6F349D4ECB14E755303EEFA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00FBC598DDCBBEEFA224E210 /* MenuBarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B9A7F7402C04A6D7BC54A1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70E73890227839CA2AC64881 /* XrayBar.app */,
+				357EDCD684BA1CDD0D9AC9BA /* XrayBarHelper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CDFB57B11DFC40306ECE8FD /* XrayBar */ = {
+			isa = PBXGroup;
+			children = (
+				904EADD7198FCFCE58FDA702 /* XrayBarApp.swift */,
+				C3EACACD5494A2BD397B8E18 /* Models */,
+				3F3D50431CD1BFD1E95C259F /* Services */,
+				3EA2A8FBE765168FAD0DD584 /* ViewModels */,
+				6F349D4ECB14E755303EEFA9 /* Views */,
+			);
+			path = XrayBar;
+			sourceTree = "<group>";
+		};
+		C3EACACD5494A2BD397B8E18 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3C88361534CDEB9CF0EB4224 /* Profile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E597FC6D02AA72074EE9BA5A /* XrayBarHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A05288CF6F7352901DFAE8F7 /* main.swift */,
+			);
+			path = XrayBarHelper;
+			sourceTree = "<group>";
+		};
+		E7935591AE00DCEBC45104AB = {
+			isa = PBXGroup;
+			children = (
+				9CDFB57B11DFC40306ECE8FD /* XrayBar */,
+				E597FC6D02AA72074EE9BA5A /* XrayBarHelper */,
+				9B9A7F7402C04A6D7BC54A1E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B022C64602BB3BD3D8260E4 /* XrayBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36E2A6C3035CCD99BE821DB1 /* Build configuration list for PBXNativeTarget "XrayBar" */;
+			buildPhases = (
+				D57E53F061F85A0E6886C21C /* Sources */,
+				5C2C6BD8EC57EDEDCA3E7887 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3790145B535DBCEEB3DD2369 /* PBXTargetDependency */,
+			);
+			name = XrayBar;
+			packageProductDependencies = (
+			);
+			productName = XrayBar;
+			productReference = 70E73890227839CA2AC64881 /* XrayBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5955A88FC4CF5BE246A748FE /* XrayBarHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 715E01C9F92E6736992A2836 /* Build configuration list for PBXNativeTarget "XrayBarHelper" */;
+			buildPhases = (
+				8146ED5844FE6350DDD73F13 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XrayBarHelper;
+			packageProductDependencies = (
+			);
+			productName = XrayBarHelper;
+			productReference = 357EDCD684BA1CDD0D9AC9BA /* XrayBarHelper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DD821AB6E67D084E095FC64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 24A72021695A1BCA0D002489 /* Build configuration list for PBXProject "XrayBar" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E7935591AE00DCEBC45104AB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9B9A7F7402C04A6D7BC54A1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B022C64602BB3BD3D8260E4 /* XrayBar */,
+				5955A88FC4CF5BE246A748FE /* XrayBarHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C2C6BD8EC57EDEDCA3E7887 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72F235716574D9AEDCD203DE /* XrayBarHelper in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8146ED5844FE6350DDD73F13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				735330D48EB377532C09B8DB /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D57E53F061F85A0E6886C21C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F919DABFB56C2B52F9F034F /* AppState.swift in Sources */,
+				990B14FAFD51FEADC277A0EC /* MenuBarView.swift in Sources */,
+				43E86503D1912B44D68C21AE /* Profile.swift in Sources */,
+				D5078DF9328B7B8C5619C968 /* ProfileManager.swift in Sources */,
+				FBE27EDB0C6884243C100840 /* ProxyManager.swift in Sources */,
+				4A8529EE8DEE136A8D615528 /* XrayBarApp.swift in Sources */,
+				242709DA49B144E58723244C /* XrayProcessManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3790145B535DBCEEB3DD2369 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5955A88FC4CF5BE246A748FE /* XrayBarHelper */;
+			targetProxy = 3D96C437E0B01DEDBCCB0C0C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3AE51BB56B6914979D1E58D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.osbertngok.XrayBar;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		4895DFDA0EA608C5668BD8B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.osbertngok.XrayBar;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		65239714F2AD347836C079BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.osbertngok.XrayBarHelper;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		97718EA3694BE01463A77084 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B5D3CEFD373760615800AE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.osbertngok.XrayBarHelper;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		B8E41EF9EBE8C374D53AFBB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24A72021695A1BCA0D002489 /* Build configuration list for PBXProject "XrayBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97718EA3694BE01463A77084 /* Debug */,
+				B8E41EF9EBE8C374D53AFBB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		36E2A6C3035CCD99BE821DB1 /* Build configuration list for PBXNativeTarget "XrayBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AE51BB56B6914979D1E58D3 /* Debug */,
+				4895DFDA0EA608C5668BD8B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		715E01C9F92E6736992A2836 /* Build configuration list for PBXNativeTarget "XrayBarHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65239714F2AD347836C079BB /* Debug */,
+				B5D3CEFD373760615800AE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2DD821AB6E67D084E095FC64 /* Project object */;
+}
