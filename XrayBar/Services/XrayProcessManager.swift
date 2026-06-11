@@ -2,17 +2,29 @@ import Foundation
 
 enum XrayLaunchError: LocalizedError {
     case launchFailed(String)
+    case missingAssets(String)
 
     var errorDescription: String? {
         switch self {
         case .launchFailed(let detail):
             return "xray failed to start:\n\(detail)"
+        case .missingAssets(let detail):
+            return detail
         }
     }
 }
 
 final class XrayProcessManager {
     private static let startupProbeInterval: TimeInterval = 0.3
+    private static let assetFiles = ["geosite.dat", "geoip.dat"]
+    private static let xrayBarAssets = ("~/.xray/assets/" as NSString).expandingTildeInPath
+    private static let assetSearchPaths = [
+        "/opt/homebrew/share/xray",
+        "/usr/local/share/xray",
+        "/usr/share/xray",
+        xrayBarAssets,
+    ]
+    private static let assetDownloadBase = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download"
 
     private var process: Process?
     private var outputPipe: Pipe?
@@ -36,16 +48,86 @@ final class XrayProcessManager {
         return ("/usr/bin/env", ["xray"])
     }
 
+    private static func resolveAssetPath() -> String? {
+        for dir in assetSearchPaths {
+            let allExist = assetFiles.allSatisfy { name in
+                let path = (dir as NSString).appendingPathComponent(name)
+                return FileManager.default.fileExists(atPath: path)
+            }
+            if allExist {
+                return dir
+            }
+        }
+        return nil
+    }
+
+    private static func ensureAssets() throws -> String {
+        if let existing = resolveAssetPath() {
+            return existing
+        }
+
+        try? FileManager.default.createDirectory(atPath: xrayBarAssets, withIntermediateDirectories: true)
+
+        var lastError: Error?
+        for name in assetFiles {
+            guard let url = URL(string: "\(assetDownloadBase)/\(name)") else { continue }
+            let semaphore = DispatchSemaphore(value: 0)
+            let dest = (xrayBarAssets as NSString).appendingPathComponent(name)
+            var downloadError: Error?
+
+            URLSession.shared.downloadTask(with: url) { tmpURL, _, error in
+                defer { semaphore.signal() }
+                if let error {
+                    downloadError = error
+                    return
+                }
+                guard let tmpURL else {
+                    downloadError = NSError(domain: "XrayBar", code: -1,
+                        userInfo: [NSLocalizedDescriptionKey: "Failed to download \(name)"])
+                    return
+                }
+                try? FileManager.default.removeItem(atPath: dest)
+                do {
+                    try FileManager.default.moveItem(at: tmpURL, to: URL(fileURLWithPath: dest))
+                } catch {
+                    downloadError = error
+                }
+            }.resume()
+            semaphore.wait()
+
+            if let downloadError {
+                lastError = downloadError
+            }
+        }
+
+        if let lastError {
+            throw XrayLaunchError.missingAssets(
+                "Missing geo data files (geosite.dat/geoip.dat).\n"
+                + "Download failed: \(lastError.localizedDescription)\n\n"
+                + "Install manually:\n"
+                + "  brew install xray\n"
+                + "Or download .dat files to ~/.xray/assets/")
+        }
+
+        return xrayBarAssets
+    }
+
     func start(configURL: URL, onUnexpectedTermination: @escaping () -> Void) throws {
         stop()
 
         Self.ensureLogDirectories(configURL: configURL)
+
+        let assetPath = try Self.ensureAssets()
 
         let (exec, prefixArgs) = Self.resolveXray()
 
         let proc = Process()
         proc.executableURL = URL(fileURLWithPath: exec)
         proc.arguments = prefixArgs + ["run", "-c", configURL.path]
+
+        var env = proc.environment ?? [:]
+        env["XRAY_LOCATION_ASSET"] = assetPath
+        proc.environment = env
 
         let pipe = Pipe()
         proc.standardOutput = pipe
