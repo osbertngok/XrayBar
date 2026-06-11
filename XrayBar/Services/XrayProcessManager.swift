@@ -12,7 +12,6 @@ enum XrayLaunchError: LocalizedError {
 }
 
 final class XrayProcessManager {
-    private static let xrayPath = "/opt/homebrew/bin/xray"
     private static let startupProbeInterval: TimeInterval = 0.3
 
     private var process: Process?
@@ -25,14 +24,28 @@ final class XrayProcessManager {
 
     private(set) var lastOutput: String = ""
 
+    private static func resolveXray() -> (executable: String, args: [String]) {
+        let homebrewARM = "/opt/homebrew/bin/xray"
+        let homebrewIntel = "/usr/local/bin/xray"
+        if FileManager.default.isExecutableFile(atPath: homebrewARM) {
+            return (homebrewARM, [])
+        }
+        if FileManager.default.isExecutableFile(atPath: homebrewIntel) {
+            return (homebrewIntel, [])
+        }
+        return ("/usr/bin/env", ["xray"])
+    }
+
     func start(configURL: URL, onUnexpectedTermination: @escaping () -> Void) throws {
         stop()
 
         Self.ensureLogDirectories(configURL: configURL)
 
+        let (exec, prefixArgs) = Self.resolveXray()
+
         let proc = Process()
-        proc.executableURL = URL(fileURLWithPath: Self.xrayPath)
-        proc.arguments = ["run", "-c", configURL.path]
+        proc.executableURL = URL(fileURLWithPath: exec)
+        proc.arguments = prefixArgs + ["run", "-c", configURL.path]
 
         let pipe = Pipe()
         proc.standardOutput = pipe

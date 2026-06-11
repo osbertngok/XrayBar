@@ -14,8 +14,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.osbertngok.XrayBar
-        MARKETING_VERSION: "1.1.0"
-        CURRENT_PROJECT_VERSION: 3
+        MARKETING_VERSION: "1.1.1"
+        CURRENT_PROJECT_VERSION: 4
         INFOPLIST_KEY_LSUIElement: true
         SWIFT_VERSION: "5.9"
         ARCHS: arm64 x86_64
