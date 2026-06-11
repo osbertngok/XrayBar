@@ -71,13 +71,13 @@ Make sure your Xray config has matching inbound listeners. For example:
 
 ## Building from source
 
-Requires Xcode 16+ and macOS 14+.
+Requires Xcode 16+ and macOS 13+.
 
 ```bash
 brew install xcodegen
 cd XrayBar
 xcodegen generate
-xcodebuild -scheme XrayBar -configuration Release build
+xcodebuild -scheme XrayBar -configuration Release -destination "generic/platform=macOS" build
 ```
 
 The built app is at:

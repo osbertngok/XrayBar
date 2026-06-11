@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MenuBarView: View {
-    @Bindable var appState: AppState
+    @ObservedObject var appState: AppState
 
     var body: some View {
         Button(appState.isConnected ? "⬤ Connected" : "◯ Disconnected") {

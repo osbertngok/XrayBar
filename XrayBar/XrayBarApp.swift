@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct XrayBarApp: App {
-    @State private var appState = AppState()
+    @StateObject private var appState = AppState()
 
     var body: some Scene {
         MenuBarExtra {

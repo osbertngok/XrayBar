@@ -1,13 +1,12 @@
 import AppKit
 import ServiceManagement
-import Observation
+import Combine
 
-@Observable
-final class AppState {
-    var isConnected = false
-    var selectedProfile: Profile?
-    var profiles: [Profile] = []
-    var lastError: String?
+final class AppState: ObservableObject {
+    @Published var isConnected = false
+    @Published var selectedProfile: Profile?
+    @Published var profiles: [Profile] = []
+    @Published var lastError: String?
 
     private let processManager = XrayProcessManager()
     private let proxyManager = ProxyManager()
