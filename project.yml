@@ -10,12 +10,16 @@ targets:
     type: application
     platform: macOS
     sources:
-      - XrayBar
+      - path: XrayBar
+        excludes:
+          - Resources
+      - path: XrayBar/Resources
+        type: resource
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.osbertngok.XrayBar
-        MARKETING_VERSION: "1.1.2"
-        CURRENT_PROJECT_VERSION: 5
+        MARKETING_VERSION: "1.1.3"
+        CURRENT_PROJECT_VERSION: 6
         INFOPLIST_KEY_LSUIElement: true
         SWIFT_VERSION: "5.9"
         ARCHS: arm64 x86_64

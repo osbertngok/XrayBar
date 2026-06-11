@@ -18,11 +18,10 @@ final class XrayProcessManager {
     private static let startupProbeInterval: TimeInterval = 0.3
     private static let assetFiles = ["geosite.dat", "geoip.dat"]
     private static let xrayBarAssets = ("~/.xray/assets/" as NSString).expandingTildeInPath
-    private static let assetSearchPaths = [
+    private static let systemAssetPaths = [
         "/opt/homebrew/share/xray",
         "/usr/local/share/xray",
         "/usr/share/xray",
-        xrayBarAssets,
     ]
     private static let assetDownloadBase = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download"
 
@@ -48,68 +47,64 @@ final class XrayProcessManager {
         return ("/usr/bin/env", ["xray"])
     }
 
+    private static func hasAssets(in dir: String) -> Bool {
+        assetFiles.allSatisfy { name in
+            FileManager.default.fileExists(atPath: (dir as NSString).appendingPathComponent(name))
+        }
+    }
+
     private static func resolveAssetPath() -> String? {
-        for dir in assetSearchPaths {
-            let allExist = assetFiles.allSatisfy { name in
-                let path = (dir as NSString).appendingPathComponent(name)
-                return FileManager.default.fileExists(atPath: path)
-            }
-            if allExist {
-                return dir
-            }
+        for dir in systemAssetPaths where hasAssets(in: dir) {
+            return dir
+        }
+        if hasAssets(in: xrayBarAssets) {
+            return xrayBarAssets
+        }
+        if let bundlePath = Bundle.main.resourcePath, hasAssets(in: bundlePath) {
+            return bundlePath
         }
         return nil
     }
 
+    private static func downloadAssets() {
+        try? FileManager.default.createDirectory(atPath: xrayBarAssets, withIntermediateDirectories: true)
+
+        for name in assetFiles {
+            let dest = (xrayBarAssets as NSString).appendingPathComponent(name)
+            guard !FileManager.default.fileExists(atPath: dest),
+                  let url = URL(string: "\(assetDownloadBase)/\(name)") else { continue }
+
+            let semaphore = DispatchSemaphore(value: 0)
+            URLSession.shared.downloadTask(with: url) { tmpURL, _, error in
+                defer { semaphore.signal() }
+                guard let tmpURL, error == nil else { return }
+                try? FileManager.default.removeItem(atPath: dest)
+                try? FileManager.default.moveItem(at: tmpURL, to: URL(fileURLWithPath: dest))
+            }.resume()
+            semaphore.wait()
+        }
+    }
+
     private static func ensureAssets() throws -> String {
         if let existing = resolveAssetPath() {
+            let isBundled = existing == Bundle.main.resourcePath
+            if isBundled {
+                DispatchQueue.global().async { downloadAssets() }
+            }
             return existing
         }
 
-        try? FileManager.default.createDirectory(atPath: xrayBarAssets, withIntermediateDirectories: true)
+        downloadAssets()
 
-        var lastError: Error?
-        for name in assetFiles {
-            guard let url = URL(string: "\(assetDownloadBase)/\(name)") else { continue }
-            let semaphore = DispatchSemaphore(value: 0)
-            let dest = (xrayBarAssets as NSString).appendingPathComponent(name)
-            var downloadError: Error?
-
-            URLSession.shared.downloadTask(with: url) { tmpURL, _, error in
-                defer { semaphore.signal() }
-                if let error {
-                    downloadError = error
-                    return
-                }
-                guard let tmpURL else {
-                    downloadError = NSError(domain: "XrayBar", code: -1,
-                        userInfo: [NSLocalizedDescriptionKey: "Failed to download \(name)"])
-                    return
-                }
-                try? FileManager.default.removeItem(atPath: dest)
-                do {
-                    try FileManager.default.moveItem(at: tmpURL, to: URL(fileURLWithPath: dest))
-                } catch {
-                    downloadError = error
-                }
-            }.resume()
-            semaphore.wait()
-
-            if let downloadError {
-                lastError = downloadError
-            }
+        if hasAssets(in: xrayBarAssets) {
+            return xrayBarAssets
         }
 
-        if let lastError {
-            throw XrayLaunchError.missingAssets(
-                "Missing geo data files (geosite.dat/geoip.dat).\n"
-                + "Download failed: \(lastError.localizedDescription)\n\n"
-                + "Install manually:\n"
-                + "  brew install xray\n"
-                + "Or download .dat files to ~/.xray/assets/")
-        }
-
-        return xrayBarAssets
+        throw XrayLaunchError.missingAssets(
+            "Missing geo data files (geosite.dat/geoip.dat).\n"
+            + "Install manually:\n"
+            + "  brew install xray\n"
+            + "Or download .dat files to ~/.xray/assets/")
     }
 
     func start(configURL: URL, onUnexpectedTermination: @escaping () -> Void) throws {

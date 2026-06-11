@@ -13,7 +13,9 @@
 		4F919DABFB56C2B52F9F034F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA3F188039091E5A0F6BB40 /* AppState.swift */; };
 		72F235716574D9AEDCD203DE /* XrayBarHelper in Resources */ = {isa = PBXBuildFile; fileRef = 357EDCD684BA1CDD0D9AC9BA /* XrayBarHelper */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		735330D48EB377532C09B8DB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05288CF6F7352901DFAE8F7 /* main.swift */; };
+		96911641AE944E30A318E744 /* geoip.dat in Resources */ = {isa = PBXBuildFile; fileRef = 25F0E5418CB5C07D7D649015 /* geoip.dat */; };
 		990B14FAFD51FEADC277A0EC /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FBC598DDCBBEEFA224E210 /* MenuBarView.swift */; };
+		CAF13BC36D85F4EAAF783913 /* geosite.dat in Resources */ = {isa = PBXBuildFile; fileRef = D40FB94DBED79BEC04CD4FFE /* geosite.dat */; };
 		D5078DF9328B7B8C5619C968 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A92F19E95509902A976744 /* ProfileManager.swift */; };
 		FBE27EDB0C6884243C100840 /* ProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3E8E414F799EC34C2562A6 /* ProxyManager.swift */; };
 /* End PBXBuildFile section */
@@ -32,16 +34,28 @@
 		00FBC598DDCBBEEFA224E210 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		0AA3F188039091E5A0F6BB40 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		0E3E8E414F799EC34C2562A6 /* ProxyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyManager.swift; sourceTree = "<group>"; };
+		25F0E5418CB5C07D7D649015 /* geoip.dat */ = {isa = PBXFileReference; path = geoip.dat; sourceTree = "<group>"; };
 		357EDCD684BA1CDD0D9AC9BA /* XrayBarHelper */ = {isa = PBXFileReference; includeInIndex = 0; path = XrayBarHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C88361534CDEB9CF0EB4224 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		70E73890227839CA2AC64881 /* XrayBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XrayBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7D4354407938C7ACAFDD9A /* XrayProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XrayProcessManager.swift; sourceTree = "<group>"; };
 		904EADD7198FCFCE58FDA702 /* XrayBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XrayBarApp.swift; sourceTree = "<group>"; };
 		A05288CF6F7352901DFAE8F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D40FB94DBED79BEC04CD4FFE /* geosite.dat */ = {isa = PBXFileReference; path = geosite.dat; sourceTree = "<group>"; };
 		E3A92F19E95509902A976744 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		3B28EE57A07DF79B740FE8BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				25F0E5418CB5C07D7D649015 /* geoip.dat */,
+				D40FB94DBED79BEC04CD4FFE /* geosite.dat */,
+			);
+			name = Resources;
+			path = XrayBar/Resources;
+			sourceTree = "<group>";
+		};
 		3EA2A8FBE765168FAD0DD584 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +122,7 @@
 		E7935591AE00DCEBC45104AB = {
 			isa = PBXGroup;
 			children = (
+				3B28EE57A07DF79B740FE8BF /* Resources */,
 				9CDFB57B11DFC40306ECE8FD /* XrayBar */,
 				E597FC6D02AA72074EE9BA5A /* XrayBarHelper */,
 				9B9A7F7402C04A6D7BC54A1E /* Products */,
@@ -189,6 +204,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96911641AE944E30A318E744 /* geoip.dat in Resources */,
+				CAF13BC36D85F4EAAF783913 /* geosite.dat in Resources */,
 				72F235716574D9AEDCD203DE /* XrayBarHelper in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +254,7 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -246,7 +263,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.osbertngok.XrayBar;
 				SDKROOT = macosx;
@@ -262,7 +279,7 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -271,7 +288,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.osbertngok.XrayBar;
 				SDKROOT = macosx;
